@@ -200,33 +200,33 @@
       color: #ffffff;
     }
 
-    /* RED GRADIENTS CARDS (DARK & LIGHT SHADES) */
+    /* RED GRADIENTS CARDS (DARK & LIGHT SHADES MATCHED TO FIGMA STOPS) */
     .card-grad-red-dark {
-      background: linear-gradient(135deg, #2c0004 0%, #58000b 50%, #170002 100%) !important;
-      border: 1.5px solid rgba(232, 0, 28, 0.25) !important;
-      box-shadow: 0 15px 35px rgba(23, 0, 2, 0.15);
+      background: linear-gradient(135deg, #FF486D 0%, #F1123F 27%, #7B071F 100%) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+      box-shadow: 0 15px 35px rgba(123, 7, 31, 0.2);
     }
     .card-grad-red-dark .bento-card-title {
       color: #ffffff !important;
     }
     .card-grad-red-dark .bento-card-desc {
-      color: rgba(255, 255, 255, 0.8) !important;
+      color: rgba(255, 255, 255, 0.9) !important;
     }
     .card-grad-red-dark .insight-box {
-      background: rgba(255, 255, 255, 0.05) !important;
-      border-left-color: #ff3c53 !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-left-color: #ffffff !important;
     }
     .card-grad-red-dark .insight-title {
-      color: #ff5e72 !important;
+      color: #ffffff !important;
     }
     .card-grad-red-dark .insight-text {
-      color: rgba(255, 255, 255, 0.9) !important;
+      color: #ffffff !important;
     }
 
     .card-grad-red-light {
-      background: linear-gradient(135deg, #ff2a4b 0%, #e8001c 50%, #9e0012 100%) !important;
+      background: linear-gradient(135deg, #FF486D 0%, #F1123F 27%, #7B071F 100%) !important;
       border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
-      box-shadow: 0 15px 35px rgba(232, 0, 28, 0.2);
+      box-shadow: 0 15px 35px rgba(123, 7, 31, 0.2);
     }
     .card-grad-red-light .bento-card-title {
       color: #ffffff !important;
@@ -448,7 +448,171 @@
       display: block;
     }
 
-    /* CUSTOM BEHANCE WIDGETS */
+    /* HERO MAIN CARD & SUB CARDS STYLING */
+    .hero-main-card {
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 80px !important;
+      min-height: 480px;
+      overflow: hidden;
+      background: #E30045 !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+      box-shadow: 0 20px 45px rgba(227, 0, 69, 0.25);
+    }
+    .hero-left {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      z-index: 5;
+    }
+    .hero-tag {
+      font-family: var(--font-title);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.95);
+      letter-spacing: -0.5px;
+    }
+    .hero-logo-container {
+      margin-top: 10px;
+    }
+    .hero-logo-svg {
+      height: 64px;
+      width: auto;
+      display: block;
+    }
+    .hero-main-title {
+      font-family: var(--font-title);
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      color: #ffffff;
+      margin-top: 10px;
+      max-width: 650px;
+    }
+    .hero-right {
+      flex: 0.8;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      align-self: stretch;
+      position: relative;
+      min-height: 380px;
+    }
+    .hero-hand-img {
+      position: absolute;
+      bottom: -60px;
+      right: -60px;
+      height: 520px;
+      object-fit: contain;
+      z-index: 2;
+    }
+
+    .challenge-card {
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px !important;
+      min-height: 380px;
+      overflow: hidden;
+    }
+    .challenge-left {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 5;
+    }
+    .challenge-title {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -1px;
+    }
+    .challenge-desc {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 90%;
+    }
+    .challenge-insight {
+      background: rgba(0, 0, 0, 0.2) !important;
+      border-left: 3px solid #ffffff !important;
+      padding: 16px 20px;
+      border-radius: 0 16px 16px 0;
+      margin-top: 10px;
+      max-width: 90%;
+    }
+    .challenge-right {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      align-self: stretch;
+      position: relative;
+      min-height: 280px;
+    }
+    .challenge-phone-img {
+      position: absolute;
+      bottom: -60px;
+      right: -20px;
+      height: 480px;
+      object-fit: contain;
+      transform: rotate(-10deg);
+      z-index: 2;
+    }
+
+    .design-zero-card {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px 30px !important;
+      min-height: 380px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .design-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .design-tag {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .design-number {
+      font-family: var(--font-title);
+      font-size: 7.5rem;
+      font-weight: 900;
+      line-height: 1;
+      color: #ffffff;
+      margin-top: -10px;
+    }
+    .design-bottom {
+      width: 130%;
+      margin-left: -15%;
+      margin-right: -15%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-bottom: -52px;
+    }
+    .design-wireframe-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .behance-wallet-card {
       background: linear-gradient(135deg, #F1123F 0%, #9e0012 100%) !important;
       padding: 40px;
@@ -702,33 +866,61 @@
     </nav>
 
     <!-- HERO SECTION & VISION GENERAL -->
-    <header class="behance-section" style="padding-top: 60px; padding-bottom: 60px;">
-      <span class="section-meta">Fullcarga · UX/UI Case Study</span>
-      <h1 class="section-title">App de Venta de Recargas y Servicios</h1>
-      <p class="section-desc">
-        Diseño completo 0 a 1 de la app nativa (iOS y Android) para revendedores y pequeños comercios en México.
-      </p>
-
+    <header class="behance-section" style="padding-top: 40px; padding-bottom: 60px;">
       <div class="bento-grid">
         
-        <!-- Bento Card: Info Desafio y Logro -->
-        <div class="bento-card col-8 card-grad-red-dark">
-          <div style="position: relative; z-index: 5;">
-            <h3 class="bento-card-title">El Desafío UX/UI</h3>
-            <p class="bento-card-desc">
-              Crear una aplicación completamente nueva desde cero, sin referencias de producto interno previas sobre las cuales iterar. El reto principal fue estructurar una arquitectura de catálogo (HTP: recargas, pines, servicios y digitales) ágil y un flujo de onboarding instantáneo que permitiera al usuario informal empezar a vender en segundos.
-            </p>
-            <div class="insight-box">
-              <div class="insight-title">UX Challenge</div>
-              <div class="insight-text">Diseñar un onboarding de confianza alta para usuarios que manejan dinero real, quitando toda la burocracia tradicional de las Fintech.</div>
+        <!-- Bento Card: Main Hero (Hand + Title) -->
+        <div class="bento-card col-12 card-grad-red-light hero-main-card">
+          <div class="hero-left">
+            <span class="hero-tag">UX/UI Case Study</span>
+            <div class="hero-logo-container">
+              <svg class="hero-logo-svg" viewBox="0 0 433 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M112.907 18.5205C111.109 16.8066 109.22 15.1833 107.241 13.6733C106.909 13.4166 106.569 13.1675 106.229 12.9183C103.947 15.3947 101.462 18.3771 98.84 21.9558C92.5241 30.5781 85.4301 42.6281 78.5855 59.3139C79.9 59.2762 81.3128 59.1554 82.5215 58.876C85.5133 58.189 88.2783 56.8375 90.5297 54.9651L92.4184 53.3946V64.6519L92.0104 64.9992C89.4946 67.083 86.3896 68.5931 83.0428 69.3632C80.172 70.0276 77.2407 70.088 74.4454 69.6123C71.7634 75.9998 68.9757 81.7983 66.188 87.023C64.7903 90.0204 63.3322 92.9574 61.927 95.4565C57.2053 103.799 44.4451 121.459 38.2577 127.212C46.9005 131.289 56.5555 133.577 66.747 133.577C74.1659 133.577 81.2976 132.354 87.9686 130.119C106.093 124.056 120.764 110.459 128.221 93.0253C131.666 84.9693 133.577 76.1055 133.577 66.7961C133.577 47.8075 125.637 30.6838 112.907 18.5205Z" fill="white"/>
+                <path d="M71.6803 0.203854C70.0485 0.0830516 68.4091 0 66.7395 0C43.7123 0 23.4049 11.6423 11.3927 29.3625C4.20049 40.0158 0 52.851 0 66.6753C0 87.2797 9.34534 105.702 24.0244 117.956C28.7008 114.906 35.4851 108.949 42.632 97.5554C47.3462 90.0355 52.2115 80.1372 56.7293 67.1585C55.309 67.1812 53.7376 67.2944 52.423 67.5964C49.4389 68.2835 46.6663 69.635 44.4149 71.5074L42.5262 73.0778V61.8206L42.9342 61.4733C45.4499 59.3894 48.5474 57.8794 51.9018 57.1093C54.7424 56.4524 57.651 56.3845 60.4236 56.8526C70.192 31.3558 81.6301 15.8327 89.8346 7.09714C90.5372 6.21377 91.1416 5.4512 91.6629 4.80944C85.415 2.29524 78.6988 0.709714 71.6803 0.196304V0.203854Z" fill="white"/>
+                <path d="M178.35 49.8114H186.388V54.9558H178.35V82.3685H172.584V54.9558H167.778V49.8114H172.584V48.5387C172.584 43.777 173.96 40.1635 176.639 37.9385C179.11 35.8469 182.405 35.0281 186.523 35.4731V40.3594C183.844 40.1724 181.925 40.6175 180.549 41.819C178.766 43.3409 178.35 46.3225 178.35 48.5476V49.8203V49.8114Z" fill="white"/>
+                <path d="M220.167 82.3685H214.537V78.8173C212.129 81.4785 208.563 83.1339 204.237 83.1339C195.584 83.1339 190.642 77.42 190.642 69.3652V49.6957H196.407V69.6234C196.407 74.83 199.494 78.2566 205.124 78.2566C210.346 78.2566 214.329 74.6431 214.329 69.748V49.6957H220.167V82.3774V82.3685Z" fill="white"/>
+                <path d="M234.459 82.3685H228.621V35.1527H234.459V82.3685Z" fill="white"/>
+                <path d="M248.878 82.3685H243.039V35.1527H248.878V82.3685Z" fill="white"/>
+                <path d="M272.429 83.1339C262.681 83.1339 254.716 75.5153 254.716 66.0633C254.716 56.6112 262.681 48.868 272.429 48.868C280.322 48.868 286.504 53.1846 288.911 59.7797H282.666C280.675 56.2285 277.036 53.8165 272.438 53.8165C265.912 53.8165 260.563 59.3347 260.563 66.0633C260.563 72.7918 265.921 78.1854 272.438 78.1854C277.108 78.1854 280.747 75.7734 282.666 72.2222H288.911C286.576 78.8262 280.331 83.1339 272.429 83.1339Z" fill="white"/>
+                <path d="M327.153 82.3685H321.523V77.0996C319.052 80.4639 314.517 83.1962 309.304 83.1962C299.139 83.1962 291.591 75.5153 291.591 66.0633C291.591 56.6112 299.139 48.868 309.304 48.868C314.526 48.868 319.052 51.6004 321.523 54.8935V49.6868H327.153V82.3685ZM309.304 54.0034C302.642 54.0034 297.429 59.4593 297.429 66.1256C297.429 72.7918 302.642 78.0608 309.304 78.0608C315.966 78.0608 321.324 72.6672 321.324 66.1256C321.324 59.5839 315.83 54.0034 309.304 54.0034Z" fill="white"/>
+                <path d="M354.352 54.2526C348.242 53.9322 343.02 56.9227 343.02 63.4555V82.3685H337.182V49.6868H342.812V53.3715C345.491 49.8826 350.297 48.4853 354.343 48.9303V54.2615L354.352 54.2526Z" fill="white"/>
+                <path d="M392.114 80.8466C392.114 91.3132 384.764 98.4245 373.921 98.4245C365.549 98.4245 359.023 94.3037 357.239 87.6374H363.349C365.684 92.5237 371.314 93.2179 373.921 93.2179C382.981 93.2179 386.285 86.7474 386.285 80.8466V77.42C383.742 80.5974 379.352 83.1962 374.265 83.1962C364.1 83.1962 356.552 75.5153 356.552 66.0633C356.552 56.6112 364.1 48.868 374.265 48.868C379.487 48.868 384.013 51.6004 386.484 54.8935V49.6868H392.114V80.8466ZM374.265 53.8699C367.603 53.8699 362.39 59.3258 362.39 66.1167C362.39 72.9075 367.603 78.2388 374.265 78.2388C380.927 78.2388 386.285 72.7829 386.285 66.1167C386.285 59.4504 380.791 53.8699 374.265 53.8699Z" fill="white"/>
+                <path d="M432.836 82.3685H427.206V77.0996C424.735 80.4639 420.2 83.1962 414.987 83.1962C404.822 83.1962 397.273 75.5153 397.273 66.0633C397.273 56.6112 404.831 48.868 414.987 48.868C420.209 48.868 424.735 51.6004 427.206 54.8935V49.6868H432.836V82.3685ZM414.978 54.0034C408.316 54.0034 403.102 59.4593 403.102 66.1256C403.102 72.7918 408.325 78.0608 414.978 78.0608C421.63 78.0608 426.998 72.6672 426.998 66.1256C426.998 59.5839 421.504 54.0034 414.978 54.0034Z" fill="white"/>
+              </svg>
             </div>
+            <h1 class="hero-main-title">App de Venta de Recargas, Pago de Servicios y Pines</h1>
+          </div>
+          <div class="hero-right">
+            <img src="imagenes/Mano-2.jpg" alt="Mano holding Fullcarga App" class="hero-hand-img">
           </div>
         </div>
 
-        <!-- Bento Card: 0 -> 1 -->
-        <div class="bento-card col-4 card-grad-red-light" style="justify-content: center; align-items: center; text-align: center;">
-          <div class="stats-val" style="color: #ffffff !important;">0 → 1</div>
-          <div class="stats-lbl" style="color: #ffffff !important;">diseño desde cero</div>
+        <!-- Bento Card: El Desafío UX/UI -->
+        <div class="bento-card col-8 card-grad-red-light challenge-card">
+          <div class="challenge-left">
+            <h2 class="challenge-title">El Desafío UX/UI</h2>
+            <p class="challenge-desc">
+              Crear una aplicación completamente nueva desde cero, sin referencias de producto interno previas sobre las cuales iterar. El reto principal fue estructurar una arquitectura de catálogo (HTP: recargas, pines, servicios y digitales) ágil y un flujo de onboarding instantáneo que permitiera al usuario informal empezar a vender en segundos.
+            </p>
+            <div class="challenge-insight">
+              <div class="insight-title" style="color: #ffffff !important;">UX Challenge</div>
+              <div class="insight-text" style="color: rgba(255, 255, 255, 0.95) !important;">Diseñar un onboarding de confianza alta para usuarios que manejan dinero real, quitando toda la burocracia tradicional de las Fintech.</div>
+            </div>
+          </div>
+          <div class="challenge-right">
+            <img src="imagenes/HEADER.png" alt="El Desafio Screen" class="challenge-phone-img">
+          </div>
+        </div>
+
+        <!-- Bento Card: Diseño desde 0 -->
+        <div class="bento-card col-4 card-grad-red-light design-zero-card">
+          <div class="design-header">
+            <span class="design-tag">Diseño desde</span>
+            <span class="design-number">0</span>
+          </div>
+          <div class="design-bottom">
+            <img src="imagenes/diseno.png" alt="Wireframe Onboarding" class="design-wireframe-img">
+          </div>
         </div>
 
       </div>
