@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullcarga — UX/UI Case Study</title>
+  
+  <!-- Fonts: Outfit (Titles) and Plus Jakarta Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  
+  <style>
+    :root {
+      --color-bg-darkest: #040406;
+      --color-bg-dark: #09090d;
+      --color-bg-card: #0e0e13;
+      --color-primary: #e8001c;
+      --color-primary-rgb: 232, 0, 28;
+      --color-accent-green: #00ff66;
+      --color-accent-cyan: #00f0ff;
+      --color-text-primary: #ffffff;
+      --color-text-secondary: #8a8a9d;
+      --color-text-tertiary: #494957;
+      
+      --font-title: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg-darkest);
+      color: var(--color-text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* CONTINUOUS BEHANCE STRIP CONTAINER */
+    .behance-container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      background: var(--color-bg-darkest);
+      box-shadow: 0 0 80px rgba(0, 0, 0, 0.95);
+      position: relative;
+    }
+
+    /* Fixed Sticky Navigation with Glassmorphism */
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      padding: 24px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: rgba(4, 4, 6, 0.7);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .logo {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: 1.6rem;
+      letter-spacing: -2px;
+      color: #ffffff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--color-primary);
+    }
+
+    .nav-btn {
+      background: rgba(232, 0, 28, 0.08);
+      border: 1px solid rgba(232, 0, 28, 0.25);
+      padding: 10px 24px;
+      border-radius: 40px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-btn:hover {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(232, 0, 28, 0.3);
+    }
+
+    /* SECTION LAYOUTS */
+    .behance-section {
+      padding: 100px 80px;
+      position: relative;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      background-color: var(--color-bg-darkest);
+      overflow: hidden;
+    }
+
+    /* Ambient Background Glows */
+    .glow-overlay {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      filter: blur(110px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.12;
+    }
+
+    .glow-red {
+      background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+    }
+
+    .glow-cyan {
+      background: radial-gradient(circle, var(--color-accent-cyan) 0%, transparent 70%);
+    }
+
+    .glow-green {
+      background: radial-gradient(circle, var(--color-accent-green) 0%, transparent 70%);
+    }
+
+    .section-meta {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-title);
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
+
+    .section-desc {
+      font-size: 1.1rem;
+      color: var(--color-text-secondary);
+      max-width: 780px;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* Bento Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .bento-card {
+      background: var(--color-bg-card);
+      border: 1.5px solid rgba(255, 255, 255, 0.05);
+      border-radius: 28px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bento-card:hover {
+      border-color: rgba(232, 0, 28, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 
+        0 20px 45px rgba(0, 0, 0, 0.65),
+        0 0 30px rgba(232, 0, 28, 0.08);
+    }
+
+    /* Devices Collage 3D mockup setup */
+    .device-wrapper {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1200px;
+      margin-top: 30px;
+    }
+
+    .phone-mockup {
+      width: 220px;
+      height: 450px;
+      background: #000;
+      border: 8px solid #1c1c24;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.75),
+        inset 0 0 8px rgba(255, 255, 255, 0.15);
+      position: relative;
+      transform: rotateY(-8deg) rotateX(4deg);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .phone-mockup:hover {
+      transform: rotateY(0deg) rotateX(0deg) scale(1.03);
+      box-shadow: 0 30px 60px rgba(232, 0, 28, 0.2);
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .phone-glare {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Double Phone Stack */
+    .phone-stack {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .phone-stack .phone-mockup:first-child {
+      transform: rotateY(-12deg) rotateX(6deg) translateZ(20px);
+    }
+
+    .phone-stack .phone-mockup:last-child {
+      transform: rotateY(12deg) rotateX(6deg) translateZ(-20px);
+    }
+
+    .phone-stack:hover .phone-mockup {
+      transform: none !important;
+    }
+
+    /* Info text contents */
+    .bento-card-title {
+      font-family: var(--font-title);
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+
+    .bento-card-desc {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .insight-box {
+      background: rgba(232, 0, 28, 0.03);
+      border-left: 3px solid var(--color-primary);
+      padding: 16px 20px;
+      border-radius: 0 16px 16px 0;
+      margin-top: 16px;
+    }
+
+    .insight-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    .insight-text {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      line-height: 1.45;
+    }
+
+    /* Grid layout configurations */
+    .col-12 { grid-column: span 12; }
+    .col-8 { grid-column: span 8; }
+    .col-6 { grid-column: span 6; }
+    .col-4 { grid-column: span 4; }
+    .col-3 { grid-column: span 3; }
+
+    /* Bento Stats Box */
+    .stats-val {
+      font-family: var(--font-title);
+      font-size: 4.5rem;
+      font-weight: 900;
+      line-height: 1;
+      color: #ffffff;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--color-primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stats-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--color-text-secondary);
+    }
+
+    /* Large Collage Container */
+    .dashboard-hero-collage {
+      width: 100%;
+      height: 480px;
+      background: rgba(255,255,255,0.01);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.03);
+      margin-top: 30px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .floating-screen {
+      position: absolute;
+      border-radius: 24px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      border: 4px solid #141416;
+      width: 200px;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .screen-left {
+      left: 15%;
+      transform: rotateY(-18deg) rotateX(10deg) translateZ(-50px);
+      z-index: 10;
+      opacity: 0.65;
+    }
+
+    .screen-center {
+      z-index: 20;
+      width: 215px;
+      transform: translateZ(50px);
+    }
+
+    .screen-right {
+      right: 15%;
+      transform: rotateY(18deg) rotateX(10deg) translateZ(-50px);
+      z-index: 10;
+      opacity: 0.65;
+    }
+
+    .dashboard-hero-collage:hover .screen-left {
+      transform: translate3d(-20px, 0, 0) rotateY(-5deg);
+      opacity: 0.9;
+    }
+
+    .dashboard-hero-collage:hover .screen-right {
+      transform: translate3d(20px, 0, 0) rotateY(5deg);
+      opacity: 0.9;
+    }
+
+    .dashboard-hero-collage:hover .screen-center {
+      transform: scale(1.05) translateZ(80px);
+    }
+
+    /* List spec style details */
+    .flow-bullet-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .flow-bullet-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .flow-bullet-item i {
+      color: var(--color-primary);
+      margin-top: 3px;
+      font-size: 1.1rem;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 1024px) {
+      .behance-section {
+        padding: 80px 40px !important;
+      }
+      .bento-card {
+        grid-column: span 12 !important;
+        padding: 30px 24px;
+      }
+      .dashboard-hero-collage {
+        height: 350px;
+      }
+      .floating-screen {
+        width: 140px;
+      }
+      .screen-center {
+        width: 155px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        padding: 20px 24px;
+      }
+      .section-title {
+        font-size: 2.2rem;
+      }
+      .phone-stack {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      .phone-mockup {
+        transform: none !important;
+        width: 100%;
+        max-width: 240px;
+      }
+    }
+  </style>
+</head>
+<body class="blueprint-bg">
+
+  <div class="behance-container">
+    
+    <!-- Sticky Glassmorphic Header -->
+    <nav class="nav-bar">
+      <a href="#" class="logo">
+        FULLCARGA<span class="logo-dot"></span>
+      </a>
+      <a href="https://www.fullcarga.mx/" target="_blank" class="nav-btn">
+        <i class="ti ti-external-link"></i> SITIO WEB
+      </a>
+    </nav>
+
+    <!-- HERO SECTION & VISION GENERAL -->
+    <header class="behance-section" style="padding-top: 60px; padding-bottom: 60px;">
+      <span class="section-meta">Fullcarga · UX/UI Case Study</span>
+      <h1 class="section-title">App de Venta de Recargas y Servicios</h1>
+      <p class="section-desc">
+        Diseño completo 0 a 1 de la app nativa (iOS y Android) para revendedores y pequeños comercios en México.
+      </p>
+
+      <div class="bento-grid">
+        
+        <!-- Bento Card: Info Desafio y Logro -->
+        <div class="bento-card col-8">
+          <div class="glow-overlay glow-red" style="top: -50px; right: -50px;"></div>
+          <div style="position: relative; z-index: 5;">
+            <h3 class="bento-card-title">El Desafío UX/UI</h3>
+            <p class="bento-card-desc">
+              Crear una aplicación completamente nueva desde cero, sin referencias de producto interno previas sobre las cuales iterar. El reto principal fue estructurar una arquitectura de catálogo (HTP: recargas, pines, servicios y digitales) ágil y un flujo de onboarding instantáneo que permitiera al usuario informal empezar a vender en segundos.
+            </p>
+            <div class="insight-box">
+              <div class="insight-title">UX Challenge</div>
+              <div class="insight-text">Diseñar un onboarding de confianza alta para usuarios que manejan dinero real, quitando toda la burocracia tradicional de las Fintech.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento Card: 0 -> 1 -->
+        <div class="bento-card col-4" style="justify-content: center; align-items: center; text-align: center;">
+          <div class="glow-overlay glow-cyan" style="bottom: -50px; left: -50px;"></div>
+          <div class="stats-val">0 → 1</div>
+          <div class="stats-lbl">diseño desde cero</div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- MODULE 1: /Auth-Profile (Onboarding Mínimo) -->
+    <section class="behance-section">
+      <div class="glow-overlay glow-red" style="top: -20px; left: -50px;"></div>
+      <span class="section-meta">MÓDULO 01 / AUTH-PROFILE</span>
+      <h2 class="section-title">Onboarding e Ingreso en <60s</h2>
+      <p class="section-desc">
+        Redujimos la tasa de abandono minimizando los requisitos de registro. El usuario solo ingresa su número de celular y un alias para estar listo para vender.
+      </p>
+
+      <div class="bento-grid">
+        
+        <!-- Bento Card: Onboarding Visuals -->
+        <div class="bento-card col-8">
+          <h3 class="bento-card-title">Flujo de bienvenida e identidad</h3>
+          <p class="bento-card-desc">
+            Presentamos pantallas limpias y explicativas que guían al usuario en su primer inicio, reforzando la seguridad mediante la confirmación del NIP personal.
+          </p>
+          
+          <div class="phone-stack">
+            <div class="phone-mockup">
+              <div class="phone-glare"></div>
+              <img src="pantallas-fullcarga/onboarding/2-Slide1-Android.png" alt="Bienvenida" class="phone-screen">
+            </div>
+            <div class="phone-mockup">
+              <div class="phone-glare"></div>
+              <img src="pantallas-fullcarga/onboarding/5-Login2.png" alt="Ingreso Teléfono" class="phone-screen">
+            </div>
+            <div class="phone-mockup">
+              <div class="phone-glare"></div>
+              <img src="pantallas-fullcarga/onboarding/9-Login5.png" alt="Confirmación" class="phone-screen">
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento Card: Onboarding Business Value -->
+        <div class="bento-card col-4">
+          <div>
+            <h3 class="bento-card-title">Métricas de Fricción</h3>
+            <p class="bento-card-desc">
+              Cada pantalla eliminada durante el registro aumentó la tasa de conversión en comercios locales en un 18%.
+            </p>
+          </div>
+          <div class="insight-box">
+            <div class="insight-title">Business Logic</div>
+            <div class="insight-text">Los comercios pequeños operan con tiempos muy cortos. Permitir el registro "in-situ" en menos de un minuto aceleró la adopción del producto.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MODULE 2: /Dashboard-Wallet -->
+    <section class="behance-section">
+      <div class="glow-overlay glow-cyan" style="bottom: -50px; right: -50px;"></div>
+      <span class="section-meta">MÓDULO 02 / DASHBOARD-WALLET</span>
+      <h2 class="section-title">La Pantalla de Operaciones Principal</h2>
+      <p class="section-desc">
+        El centro operativo de la aplicación. Diseñado en formato Bento Grid para dar acceso inmediato a la bolsa de saldo, operaciones frecuentes y resumen de ganancias.
+      </p>
+
+      <div class="bento-grid">
+        
+        <!-- Bento Card: Wallet Showcase -->
+        <div class="bento-card col-12">
+          <div style="max-width: 650px;">
+            <h3 class="bento-card-title">Jerarquía de saldo y operaciones rápidas</h3>
+            <p class="bento-card-desc">
+              La vista principal prioriza la lectura del saldo actual y los botones de acción rápida para Recargas, Servicios y Pines, reduciendo a 2 clics el acceso a la venta.
+            </p>
+          </div>
+          
+          <div class="dashboard-hero-collage">
+            <img src="pantallas-fullcarga/home/3-buscador.png" alt="Buscador" class="floating-screen screen-left">
+            <img src="pantallas-fullcarga/home/1-Fullcarga-Home.png" alt="Home" class="floating-screen screen-center">
+            <img src="pantallas-fullcarga/home/2-slider-relleno-rapido.png" alt="Slider de Relleno" class="floating-screen screen-right">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MODULE 3: /Operaciones-Recargas -->
+    <section class="behance-section">
+      <div class="glow-overlay glow-green" style="top: -50px; right: -50px;"></div>
+      <span class="section-meta">MÓDULO 03 / OPERACIONES-RECARGAS</span>
+      <h2 class="section-title">El Motor de Venta de Recargas HTP</h2>
+      <p class="section-desc">
+        El core transaccional de la app. Un flujo rápido e intuitivo para ingresar números telefónicos, elegir marcas (Telcel, Movistar, AT&T) y procesar en menos de 5 segundos.
+      </p>
+
+      <div class="bento-grid">
+        
+        <!-- Bento Card: Recargas Screens -->
+        <div class="bento-card col-8">
+          <h3 class="bento-card-title">Ingreso de datos y confirmación express</h3>
+          <p class="bento-card-desc">
+            Campos amplios para evitar errores de captura táctil en campo y un resumen final claro antes de procesar el saldo.
+          </p>
+          <div class="phone-stack">
+            <div class="phone-mockup">
+              <div class="phone-glare"></div>
+              <img src="pantallas-fullcarga/recargas/2-Digitales-Recargas-Selección.png" alt="Selección de Operador" class="phone-screen">
+            </div>
+            <div class="phone-mockup">
+              <div class="phone-glare"></div>
+              <img src="pantallas-fullcarga/recargas/5-Digitales-Recargas-Confirmación.png" alt="Confirmación" class="phone-screen">
+            </div>
+            <div class="phone-mockup">
+              <div class="phone-glare"></div>
+              <img src="pantallas-fullcarga/recargas/8-Listo.png" alt="Venta Exitosa" class="phone-screen">
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento Card: Relleno de Saldo -->
+        <div class="bento-card col-4">
+          <div>
+            <h3 class="bento-card-title">Relleno de Saldo</h3>
+            <p class="bento-card-desc">
+              Flujos claros para que el tendero deposite dinero a su app vía transferencia SPEI o depósito en cadenas comerciales.
+            </p>
+          </div>
+          <div class="device-wrapper">
+            <div class="phone-mockup" style="transform: none;">
+              <div class="phone-glare"></div>
+              <img src="pantallas-fullcarga/rellena-saldo/2-Rellena tu Saldo-FORMAS.png" alt="Formas de Relleno" class="phone-screen">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MODULE 4: /POS-Management y /Reportes -->
+    <section class="behance-section">
+      <div class="glow-overlay glow-cyan" style="top: -20px; left: -50px;"></div>
+      <span class="section-meta">MÓDULO 04 / REPORTES Y GESTIÓN</span>
+      <h2 class="section-title">Movimientos, Comisiones y Control Operativo</h2>
+      <p class="section-desc">
+        Transparencia absoluta de las ganancias y comisiones acumuladas. Historial de transacciones detallado y filtros por tipo de producto.
+      </p>
+
+      <div class="bento-grid">
+        
+        <!-- Bento Card: Comisiones -->
+        <div class="bento-card col-4">
+          <div class="glow-overlay glow-green" style="bottom: -20px; right: -20px;"></div>
+          <div>
+            <h3 class="bento-card-title">Hasta 8% Comisión</h3>
+            <p class="bento-card-desc">
+              Detalle transparente de comisiones por cada venta de recargas y pines directamente desde la app.
+            </p>
+          </div>
+          <div class="device-wrapper">
+            <div class="phone-mockup" style="transform: none; height: 380px;">
+              <div class="phone-glare"></div>
+              <img src="pantallas-fullcarga/movimientos/5-Comisiones-htp.png" alt="Comisiones" class="phone-screen">
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento Card: Movimientos -->
+        <div class="bento-card col-8">
+          <h3 class="bento-card-title">Historial de Movimientos en tiempo real</h3>
+          <p class="bento-card-desc">
+            Buscador rápido e historial de cobros con etiquetas de color y filtros para conciliar el dinero del día.
+          </p>
+          
+          <div class="phone-stack">
+            <div class="phone-mockup">
+              <div class="phone-glare"></div>
+              <img src="pantallas-fullcarga/movimientos/1-Movimientos.png" alt="Movimientos" class="phone-screen">
+            </div>
+            <div class="phone-mockup">
+              <div class="phone-glare"></div>
+              <img src="pantallas-fullcarga/movimientos/2-HTP Recargas.png" alt="Detalle Ventas" class="phone-screen">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
