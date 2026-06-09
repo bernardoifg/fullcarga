@@ -223,6 +223,28 @@
       color: #ffffff !important;
     }
 
+    .card-grad-red-darker {
+      background: linear-gradient(135deg, #8A0A24 0%, #450310 50%, #1E0006 100%) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+    }
+    .card-grad-red-darker .bento-card-title {
+      color: #ffffff !important;
+    }
+    .card-grad-red-darker .bento-card-desc {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+    .card-grad-red-darker .insight-box {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-left-color: #ffffff !important;
+    }
+    .card-grad-red-darker .insight-title {
+      color: #ffffff !important;
+    }
+    .card-grad-red-darker .insight-text {
+      color: #ffffff !important;
+    }
+
     .card-grad-red-light {
       background: linear-gradient(135deg, #FF486D 0%, #F1123F 27%, #7B071F 100%) !important;
       border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
@@ -455,7 +477,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 60px 80px !important;
-      min-height: 480px;
+      min-height: 550px;
       overflow: hidden;
       background: #E30045 !important;
       border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
@@ -505,9 +527,9 @@
     }
     .hero-hand-img {
       position: absolute;
-      bottom: -60px;
-      right: -60px;
-      height: 520px;
+      bottom: -150px;
+      right: -30px;
+      height: 660px;
       object-fit: contain;
       z-index: 2;
     }
@@ -561,7 +583,7 @@
     .challenge-phone-img {
       position: absolute;
       top: -45px;
-      right: -75px;
+      right: -160px;
       height: 140%;
       width: auto;
       object-fit: contain;
@@ -802,6 +824,257 @@
       height: 25px;
     }
 
+    /* ROLE & ACHIEVEMENTS BENTO STYLING */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px 40px;
+      margin-top: 20px;
+    }
+    
+    /* When inside the darker col-6 bento cards, force them to stack on desktop too */
+    @media (min-width: 1025px) {
+      .card-grad-red-darker .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .card-grad-red-darker .role-cols-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    /* Stack on smaller tablet and mobile viewports globally */
+    @media (max-width: 768px) {
+      .achievements-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+      .role-cols-container {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+    }
+
+    .achievement-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .achievement-icon {
+      color: #00ff66;
+      font-size: 1.3rem;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .achievement-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .achievement-text strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .role-cols-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 24px;
+    }
+    .role-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .role-col-title {
+      font-family: var(--font-title);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .role-col-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .behance-tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 35px;
+      border-top: 1.5px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      width: 100%;
+    }
+    .behance-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #ffffff;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: default;
+    }
+    .behance-tag:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 6px 20px rgba(255, 72, 109, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* UNIFIED AUTH CARD GRID */
+    .unified-auth-grid {
+      display: grid;
+      grid-template-columns: 7.5fr 4.5fr;
+      gap: 40px;
+      align-items: center;
+      width: 100%;
+    }
+    .unified-auth-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .auth-visuals-row {
+      display: flex;
+      gap: 16px;
+      justify-content: flex-start;
+      margin-top: 10px;
+    }
+    .auth-phone-frame {
+      width: 140px;
+      aspect-ratio: 9/19.5;
+      border-radius: 14px;
+      border: 3.5px solid #1e1e24;
+      background: #000;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .auth-phone-frame:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55);
+    }
+    .auth-phone-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .unified-auth-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 1.5px solid rgba(255, 255, 255, 0.1);
+      padding-left: 40px;
+      height: 100%;
+    }
+
+    /* OVERLAPPING SCREENS (MÓDULO 02 y 03) */
+    .overlapping-screens-container {
+      position: relative;
+      width: 100%;
+      height: 290px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 10px;
+    }
+    .overlapping-screen {
+      position: absolute;
+      width: 125px;
+      aspect-ratio: 9/19.5;
+      border-radius: 12px;
+      border: 3px solid #1e1e24;
+      background: #000;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .overlapping-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Overlap layer styles - separated more at rest */
+    .overlapping-screen.back-left {
+      transform: translateX(-100px) translateY(12px) scale(0.88);
+      z-index: 1;
+      opacity: 0.82;
+    }
+    .overlapping-screen.back-right {
+      transform: translateX(100px) translateY(-12px) scale(0.88);
+      z-index: 1;
+      opacity: 0.82;
+    }
+    .overlapping-screen.front-center {
+      transform: scale(1);
+      z-index: 5;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55);
+    }
+    
+    /* Interactive Hover expansion - completely separate (no overlap) */
+    .overlapping-screens-container:hover .back-left {
+      transform: translateX(-165px) translateY(0) scale(1);
+      opacity: 1;
+      z-index: 6;
+    }
+    .overlapping-screens-container:hover .back-right {
+      transform: translateX(165px) translateY(0) scale(1);
+      opacity: 1;
+      z-index: 6;
+    }
+    .overlapping-screens-container:hover .front-center {
+      transform: scale(1.05);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+    }
+
+    /* FLAT SCREENS ROW (MÓDULO 04) */
+    .flat-screens-container {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 10px 0;
+    }
+    .flat-screen-phone {
+      width: 125px;
+      aspect-ratio: 9/19.5;
+      border-radius: 12px;
+      border: 3.5px solid #1e1e24;
+      background: #000;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .flat-screen-phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .flat-screen-phone:hover {
+      transform: translateY(-6px) scale(1.06);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);
+    }
+
     /* RESPONSIVE DESIGN */
     @media (max-width: 1024px) {
       .behance-section {
@@ -809,7 +1082,34 @@
       }
       .bento-card {
         grid-column: span 12 !important;
-        padding: 30px 24px;
+        padding: 40px 30px;
+      }
+      .hero-main-card {
+        padding: 40px 50px !important;
+        min-height: 500px;
+      }
+      .hero-hand-img {
+        height: 520px;
+        bottom: -100px;
+        right: -20px;
+      }
+      .challenge-card {
+        padding: 40px 50px !important;
+      }
+      .challenge-phone-img {
+        right: -80px;
+        height: 120%;
+      }
+      .unified-auth-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .unified-auth-right {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1.5px solid rgba(255, 255, 255, 0.1);
+        padding-top: 30px;
+        gap: 20px;
       }
       .dashboard-hero-collage {
         height: 350px;
@@ -820,6 +1120,17 @@
       .screen-center {
         width: 155px;
       }
+      .product-module-row {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-bottom: 30px;
+      }
+      .module-visuals {
+        justify-content: center;
+      }
+      .auth-visuals-row {
+        justify-content: center;
+      }
     }
 
     @media (max-width: 768px) {
@@ -829,15 +1140,72 @@
       .section-title {
         font-size: 2.2rem;
       }
-      .phone-stack {
-        flex-direction: column;
-        align-items: center;
+      
+      /* Hero card mobile responsiveness */
+      .hero-main-card {
+        flex-direction: column !important;
+        padding: 40px 24px !important;
+        min-height: auto !important;
+        gap: 30px;
+        align-items: flex-start !important;
+      }
+      .hero-left {
+        width: 100%;
+        flex: none !important;
+        text-align: left;
+      }
+      .hero-main-title {
+        font-size: 2rem !important;
+      }
+      .hero-right {
+        width: 100%;
+        min-height: 320px !important;
+        flex: none !important;
+        align-self: stretch;
+      }
+      .hero-hand-img {
+        height: 420px !important;
+        bottom: -120px !important;
+        right: 50% !important;
+        transform: translateX(50%) !important;
+      }
+
+      /* Challenge card mobile responsiveness */
+      .challenge-card {
+        flex-direction: column !important;
+        padding: 40px 24px !important;
+        min-height: auto !important;
         gap: 30px;
       }
-      .phone-mockup {
-        transform: none !important;
+      .challenge-left {
         width: 100%;
-        max-width: 240px;
+        flex: none !important;
+      }
+      .challenge-right {
+        width: 100%;
+        min-height: 280px !important;
+        flex: none !important;
+        align-self: stretch;
+      }
+      .challenge-phone-img {
+        height: 320px !important;
+        top: auto !important;
+        bottom: -50px !important;
+        right: 50% !important;
+        transform: rotate(-12deg) translateX(50%) !important;
+        transform-origin: bottom center;
+      }
+      .unified-modules-card {
+        padding: 40px 20px !important;
+      }
+      .modules-section-title {
+        font-size: 2.2rem;
+      }
+      .small-phone-frame {
+        width: 120px;
+      }
+      .auth-phone-frame {
+        width: 110px;
       }
     }
   </style>
@@ -869,7 +1237,7 @@
     </nav>
 
     <!-- HERO SECTION & VISION GENERAL -->
-    <header class="behance-section" style="padding-top: 40px; padding-bottom: 60px;">
+    <section class="behance-section" style="padding-top: 40px; padding-bottom: 80px !important; border-bottom: none !important;">
       <div class="bento-grid">
         
         <!-- Bento Card: Main Hero (Hand + Title) -->
@@ -926,297 +1294,216 @@
           </div>
         </div>
 
-      </div>
-    </header>
-
-    <!-- MODULE 1: /Auth-Profile (Onboarding Mínimo) -->
-    <section class="behance-section">
-      <div class="glow-overlay glow-red" style="top: -20px; left: -50px;"></div>
-      <span class="section-meta">MÓDULO 01 / AUTH-PROFILE</span>
-      <h2 class="section-title">Onboarding e Ingreso en <60s</h2>
-      <p class="section-desc">
-        Redujimos la tasa de abandono minimizando los requisitos de registro. El usuario solo ingresa su número de celular y un alias para estar listo para vender.
-      </p>
-
-      <div class="bento-grid">
-        
-        <!-- Bento Card: Onboarding Visuals -->
-        <div class="bento-card col-8 card-grad-red-light">
-          <h3 class="bento-card-title">Flujo de bienvenida e identidad</h3>
-          <p class="bento-card-desc">
-            Presentamos pantallas limpias y explicativas que guían al usuario en su primer inicio, reforzando la seguridad mediante la confirmación del NIP personal.
-          </p>
-          
-          <div class="phone-stack">
-            <div class="phone-mockup">
-              <div class="phone-glare"></div>
-              <img src="pantallas-fullcarga/onboarding/2-Slide1-Android.png" alt="Bienvenida" class="phone-screen">
-            </div>
-            <div class="phone-mockup">
-              <div class="phone-glare"></div>
-              <img src="pantallas-fullcarga/onboarding/5-Login2.png" alt="Ingreso Teléfono" class="phone-screen">
-            </div>
-            <div class="phone-mockup">
-              <div class="phone-glare"></div>
-              <img src="pantallas-fullcarga/onboarding/9-Login5.png" alt="Confirmación" class="phone-screen">
-            </div>
-          </div>
-        </div>
-
-        <!-- Bento Card: Onboarding Business Value -->
-        <div class="bento-card col-4 card-grad-red-dark">
+        <!-- Bento Card: Lo que se logró -->
+        <div class="bento-card col-6 card-grad-red-darker">
           <div>
-            <h3 class="bento-card-title">Métricas de Fricción</h3>
-            <p class="bento-card-desc">
-              Cada pantalla eliminada durante el registro aumentó la tasa de conversión en comercios locales en un 18%.
-            </p>
-          </div>
-          <div class="insight-box">
-            <div class="insight-title">Business Logic</div>
-            <div class="insight-text">Los comercios pequeños operan con tiempos muy cortos. Permitir el registro "in-situ" en menos de un minuto aceleró la adopción del producto.</div>
+            <h3 class="bento-card-title" style="font-size: 2rem;">Lo que se logró</h3>
+            <div class="achievements-grid">
+              
+              <div class="achievement-item">
+                <div class="achievement-icon"><i class="ti ti-circle-check-filled"></i></div>
+                <div class="achievement-text">
+                  <strong>Onboarding ultra-rápido:</strong> solo número de teléfono y alias — el usuario está listo para vender en menos de 60 segundos, sin pedir datos innecesarios.
+                </div>
+              </div>
+
+              <div class="achievement-item">
+                <div class="achievement-icon"><i class="ti ti-circle-check-filled"></i></div>
+                <div class="achievement-text">
+                  <strong>Flujo de recarga de saldo simplificado:</strong> vía transferencia bancaria, diseñado para que cualquier usuario lo ejecute sin soporte.
+                </div>
+              </div>
+
+              <div class="achievement-item">
+                <div class="achievement-icon"><i class="ti ti-circle-check-filled"></i></div>
+                <div class="achievement-text">
+                  <strong>Buscador y catálogo organizado:</strong> de productos HTP — recargas, pines, servicios y digitales — con acceso inmediato desde el home.
+                </div>
+              </div>
+
+              <div class="achievement-item">
+                <div class="achievement-icon"><i class="ti ti-circle-check-filled"></i></div>
+                <div class="achievement-text">
+                  <strong>App publicada en App Store y Google Play:</strong> con sistema de comisiones claro, movimientos en tiempo real e invitación a nuevos vendedores.
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <!-- MODULE 2: /Dashboard-Wallet -->
-    <section class="behance-section">
-      <div class="glow-overlay glow-cyan" style="bottom: -50px; right: -50px;"></div>
-      <span class="section-meta">MÓDULO 02 / DASHBOARD-WALLET</span>
-      <h2 class="section-title">La Pantalla de Operaciones Principal</h2>
-      <p class="section-desc">
-         El centro operativo de la aplicación. Diseñado en formato Bento Grid para dar acceso inmediato a la bolsa de saldo, operaciones frecuentes y resumen de ganancias.
-      </p>
-
-      <div class="bento-grid">
-        
-        <!-- Bento Card: Wallet Showcase (Behance Style Wallet Card) -->
-        <div class="behance-wallet-card col-8">
-          <div class="wallet-header">
-            <div>
-              <div class="wallet-title">SALDO TOTAL DE BOLSA</div>
-              <div class="wallet-value">$41,812.14</div>
-            </div>
-            <div class="wallet-pills">
-              <div class="wallet-pill">1h</div>
-              <div class="wallet-pill">8h</div>
-              <div class="wallet-pill active">1d</div>
-              <div class="wallet-pill">1w</div>
-              <div class="wallet-pill">1m</div>
-              <div class="wallet-pill">6m</div>
-              <div class="wallet-pill">1y</div>
-            </div>
-          </div>
-          
-          <div class="chart-container">
-            <div class="chart-tooltip">
-              <div class="chart-tooltip-dot"></div>
-              <span>+$10,859.48</span>
-              <span style="opacity: 0.7; font-weight: normal; font-size: 0.75rem;">15.4%</span>
-            </div>
+        <!-- Bento Card: Mi rol en el proyecto -->
+        <div class="bento-card col-6 card-grad-red-darker" style="padding-bottom: 30px !important;">
+          <div>
+            <h3 class="bento-card-title" style="font-size: 2rem; margin-bottom: 20px;">Mi rol en el proyecto</h3>
             
-            <!-- Volume Bars (Behance style back lines) -->
-            <div class="volume-bars">
-              <div class="volume-bar" style="height: 40%;"></div>
-              <div class="volume-bar" style="height: 60%;"></div>
-              <div class="volume-bar" style="height: 30%;"></div>
-              <div class="volume-bar" style="height: 50%;"></div>
-              <div class="volume-bar" style="height: 75%;"></div>
-              <div class="volume-bar" style="height: 90%;"></div>
-              <div class="volume-bar" style="height: 40%;"></div>
-              <div class="volume-bar" style="height: 65%;"></div>
-              <div class="volume-bar" style="height: 55%;"></div>
-              <div class="volume-bar" style="height: 80%;"></div>
-              <div class="volume-bar" style="height: 95%;"></div>
-              <div class="volume-bar" style="height: 45%;"></div>
-              <div class="volume-bar" style="height: 70%;"></div>
-              <div class="volume-bar" style="height: 50%;"></div>
-              <div class="volume-bar" style="height: 85%;"></div>
-              <div class="volume-bar" style="height: 60%;"></div>
-              <div class="volume-bar" style="height: 75%;"></div>
+            <div class="role-cols-container">
+              
+              <div class="role-col">
+                <div class="role-col-title">
+                  <i class="ti ti-brand-figma"></i> Diseño 0 → 1
+                </div>
+                <div class="role-col-desc">
+                  Concepto, arquitectura de información, flujos y pantallas finales desde cero.
+                </div>
+              </div>
+
+              <div class="role-col">
+                <div class="role-col-title">
+                  <i class="ti ti-palette"></i> Design System
+                </div>
+                <div class="role-col-desc">
+                  Paleta, tipografía, íconos y componentes base de la app.
+                </div>
+              </div>
+
+              <div class="role-col">
+                <div class="role-col-title">
+                  <i class="ti ti-rocket"></i> UX Strategy
+                </div>
+                <div class="role-col-desc">
+                  Onboarding mínimo, flujos de venta rápida y arquitectura del catálogo HTP.
+                </div>
+              </div>
+
             </div>
+
+            <!-- Tags Section -->
+            <div class="behance-tags-container">
+              <span class="behance-tag">Diseño desde cero</span>
+              <span class="behance-tag">UX Research</span>
+              <span class="behance-tag">UI Design</span>
+              <span class="behance-tag">Design System</span>
+              <span class="behance-tag">Figma</span>
+              <span class="behance-tag">iOS · Android</span>
+              <span class="behance-tag">Fintech · HTP</span>
+              <span class="behance-tag">México</span>
+            </div>
+
+          </div>
+        </div>
+        <!-- Bento Card: Onboarding Unified Card (Combines Header, Visuals and Metrics) -->
+        <div class="bento-card col-12 card-grad-red-light" style="padding: 50px !important;">
+          
+          <!-- Card Header Section -->
+          <div style="margin-bottom: 40px; border-bottom: 1.5px solid rgba(255, 255, 255, 0.1); padding-bottom: 30px;">
+            <span class="section-meta" style="color: rgba(255, 255, 255, 0.7) !important; margin-bottom: 10px; display: block;">MÓDULO 01 / AUTOENROLAMIENTO</span>
+            <h2 class="bento-card-title" style="font-size: 3rem; margin-bottom: 16px; letter-spacing: -1.5px; line-height: 1.1; color: #ffffff !important;">Onboarding e Ingreso en &lt;60s</h2>
+            <p class="bento-card-desc" style="font-size: 1.1rem; max-width: 950px; margin: 0; line-height: 1.6; color: rgba(255, 255, 255, 0.95) !important;">
+              Para maximizar la conversión, transformé el proceso de onboarding en un flujo de menos de 60 segundos. Mi enfoque fue eliminar la carga cognitiva: el usuario pasa del número de celular a la venta activa casi instantáneamente tras una validación OTP y la elección de un alias. Diseñé las pantallas de bienvenida no solo para guiar, sino para educar, asegurando que la configuración del NIP personal fuera un proceso fluido que cerrara la brecha entre el registro y la seguridad operativa.
+            </p>
+          </div>
+
+          <div class="unified-auth-grid">
             
-            <!-- Yellow Line graph -->
-            <svg class="trend-svg" viewBox="0 0 400 150" preserveAspectRatio="none">
-              <path d="M 0 120 Q 50 100 100 80 T 200 90 T 300 60 T 400 30" fill="none" stroke="#FFD200" stroke-width="4" stroke-linecap="round"/>
-              <circle cx="400" cy="30" r="6" fill="#FFD200" />
-              <circle cx="400" cy="30" r="12" fill="none" stroke="#FFD200" stroke-width="2" style="opacity: 0.5; animation: pulse 2s infinite;" />
-            </svg>
+            <div class="unified-auth-left">
+              <div class="auth-visuals-row">
+                <div class="auth-phone-frame">
+                  <img src="pantallas-fullcarga/onboarding/2-Slide1-Android.png" alt="Bienvenida">
+                </div>
+                <div class="auth-phone-frame">
+                  <img src="pantallas-fullcarga/onboarding/5-Login2.png" alt="Ingreso Teléfono">
+                </div>
+                <div class="auth-phone-frame">
+                  <img src="pantallas-fullcarga/onboarding/9-Login5.png" alt="Confirmación">
+                </div>
+              </div>
+            </div>
+
+            <div class="unified-auth-right">
+              <div>
+                <h3 class="bento-card-title" style="font-size: 1.5rem; margin-bottom: 10px;">Lógica de Negocio</h3>
+              </div>
+              <div class="insight-box" style="margin-top: 0px; padding: 0; background: transparent; border-left: none;">
+                <div class="insight-title" style="color: rgba(255, 255, 255, 0.6); margin-bottom: 8px;">Métricas de Fricción</div>
+                <div class="insight-text" style="font-size: 0.92rem; line-height: 1.55; color: rgba(255,255,255,0.9);">
+                  Los pequeños comercios operan con tiempos muy cortos y necesitan inmediatez. Al eliminar pantallas redundantes del registro y permitir que se realice de forma ágil e "in-situ" en menos de un minuto, logramos acelerar la adopción de la app e incrementar la tasa de conversión en comercios locales en un 18%.
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-
-        <!-- Bento Card: Behance Style Transactions List Card -->
-        <div class="transactions-card col-4">
-          <div style="font-family: var(--font-title); font-size: 1.1rem; font-weight: bold; margin-bottom: 5px; color: #ffffff;">Operaciones Recientes</div>
-          
-          <!-- Telcel Item -->
-          <div class="tx-item">
-            <div class="tx-left">
-              <div class="tx-icon-wrapper" style="background: rgba(241, 18, 63, 0.1); color: #F1123F;">
-                <i class="ti ti-phone-call"></i>
-              </div>
-              <div class="tx-info">
-                <span class="tx-name">Telcel</span>
-                <span class="tx-sub">Recarga $200</span>
-              </div>
-            </div>
-            <div class="tx-right">
-              <span class="tx-val" style="color: #00ff66;">+$16.00</span>
-              <span class="tx-time">08:21 AM</span>
-            </div>
-          </div>
-
-          <!-- CFE Item -->
-          <div class="tx-item">
-            <div class="tx-left">
-              <div class="tx-icon-wrapper" style="background: rgba(0, 184, 70, 0.1); color: #00b846;">
-                <i class="ti ti-bolt"></i>
-              </div>
-              <div class="tx-info">
-                <span class="tx-name">CFE</span>
-                <span class="tx-sub">Servicio Luz</span>
-              </div>
-            </div>
-            <div class="tx-right">
-              <span class="tx-val" style="color: #00ff66;">+$12.50</span>
-              <span class="tx-time">05:19 AM</span>
-            </div>
-          </div>
-
-          <!-- Movistar Item -->
-          <div class="tx-item">
-            <div class="tx-left">
-              <div class="tx-icon-wrapper" style="background: rgba(0, 153, 255, 0.1); color: #0099ff;">
-                <i class="ti ti-phone"></i>
-              </div>
-              <div class="tx-info">
-                <span class="tx-name">Movistar</span>
-                <span class="tx-sub">Recarga $100</span>
-              </div>
-            </div>
-            <div class="tx-right">
-              <span class="tx-val" style="color: #00ff66;">+$8.00</span>
-              <span class="tx-time">Ayer</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bento Card: Screens Showcase (original collage) -->
-        <div class="bento-card col-12 card-grad-red-dark">
-          <div style="max-width: 650px;">
-            <h3 class="bento-card-title">Interfaz de la Aplicación en Acción</h3>
-            <p class="bento-card-desc">
-              La vista principal del producto real prioriza la velocidad con botones táctiles grandes, un buscador global inteligente y atajos rápidos para que los tenderos atiendan a sus clientes en segundos.
-            </p>
-          </div>
-          
-          <div class="dashboard-hero-collage">
-            <img src="pantallas-fullcarga/home/3-buscador.png" alt="Buscador" class="floating-screen screen-left">
-            <img src="pantallas-fullcarga/home/1-Fullcarga-Home.png" alt="Home" class="floating-screen screen-center">
-            <img src="pantallas-fullcarga/home/2-slider-relleno-rapido.png" alt="Slider de Relleno" class="floating-screen screen-right">
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- MODULE 3: /Operaciones-Recargas -->
-    <section class="behance-section">
-      <div class="glow-overlay glow-green" style="top: -50px; right: -50px;"></div>
-      <span class="section-meta">MÓDULO 03 / OPERACIONES-RECARGAS</span>
-      <h2 class="section-title">El Motor de Venta de Recargas HTP</h2>
-      <p class="section-desc">
-        El core transaccional de la app. Un flujo rápido e intuitivo para ingresar números telefónicos, elegir marcas (Telcel, Movistar, AT&T) y procesar en menos de 5 segundos.
-      </p>
-
-      <div class="bento-grid">
+        <!-- Continuous Bento Layout -->
         
-        <!-- Bento Card: Recargas Screens -->
-        <div class="bento-card col-8 card-grad-red-light">
-          <h3 class="bento-card-title">Ingreso de datos y confirmación express</h3>
-          <p class="bento-card-desc">
-            Campos amplios para evitar errores de captura táctil en campo y un resumen final claro antes de procesar el saldo.
-          </p>
-          <div class="phone-stack">
-            <div class="phone-mockup">
-              <div class="phone-glare"></div>
-              <img src="pantallas-fullcarga/recargas/2-Digitales-Recargas-Seleccion.png" alt="Selección de Operador" class="phone-screen">
-            </div>
-            <div class="phone-mockup">
-              <div class="phone-glare"></div>
-              <img src="pantallas-fullcarga/recargas/5-Digitales-Recargas-Confirmacion.png" alt="Confirmación" class="phone-screen">
-            </div>
-            <div class="phone-mockup">
-              <div class="phone-glare"></div>
-              <img src="pantallas-fullcarga/recargas/8-Listo.png" alt="Venta Exitosa" class="phone-screen">
-            </div>
-          </div>
-        </div>
-
-        <!-- Bento Card: Relleno de Saldo -->
-        <div class="bento-card col-4 card-grad-red-dark">
-          <div>
-            <h3 class="bento-card-title">Relleno de Saldo</h3>
-            <p class="bento-card-desc">
-              Flujos claros para que el tendero deposite dinero a su app vía transferencia SPEI o depósito en cadenas comerciales.
+        <!-- Module 2: El Dashboard Operativo (col-6) -->
+        <div class="bento-card col-6 card-grad-red-light" style="padding: 40px !important; min-height: 580px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="margin-bottom: 20px;">
+            <span class="section-meta" style="color: rgba(255, 255, 255, 0.7) !important; margin-bottom: 8px; display: block;">MÓDULO 02 / LA PANTALLA PRINCIPAL</span>
+            <h3 class="bento-card-title" style="font-size: 2rem; color: #ffffff !important; margin-bottom: 12px; letter-spacing: -0.5px;">El Dashboard Operativo</h3>
+            <p class="bento-card-desc" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255, 255, 255, 0.9); margin: 0;">
+              Conceptualicé y diseñé el centro operativo de la aplicación bajo un enfoque de UX centrado en la velocidad. Estructuré la jerarquía visual para otorgar acceso inmediato a los KPIs críticos: saldo, operaciones frecuentes y resumen de ganancias. Mediante una interfaz de navegación simplificada, integré atajos táctiles y un buscador inteligente que reduce drásticamente la carga cognitiva, permitiendo que el tendero resuelva las necesidades del cliente en segundos.
             </p>
           </div>
-          <div class="device-wrapper">
-            <div class="phone-mockup" style="transform: none;">
-              <div class="phone-glare"></div>
-              <img src="pantallas-fullcarga/rellena-saldo/2-Rellena tu Saldo-FORMAS.png" alt="Formas de Relleno" class="phone-screen">
+          <div class="overlapping-screens-container" style="margin-top: auto; margin-bottom: -10px;">
+            <div class="overlapping-screen back-left">
+              <img src="pantallas-fullcarga/home/2-slider-relleno-rapido.png" alt="Refill Slider">
+            </div>
+            <div class="overlapping-screen front-center">
+              <img src="pantallas-fullcarga/home/1-Fullcarga-Home.png" alt="Home Screen">
+            </div>
+            <div class="overlapping-screen back-right">
+              <img src="pantallas-fullcarga/home/3-buscador.png" alt="Search Screen">
             </div>
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <!-- MODULE 4: /POS-Management y /Reportes -->
-    <section class="behance-section">
-      <div class="glow-overlay glow-cyan" style="top: -20px; left: -50px;"></div>
-      <span class="section-meta">MÓDULO 04 / REPORTES Y GESTIÓN</span>
-      <h2 class="section-title">Movimientos, Comisiones y Control Operativo</h2>
-      <p class="section-desc">
-        Transparencia absoluta de las ganancias y comisiones acumuladas. Historial de transacciones detallado y filtros por tipo de producto.
-      </p>
-
-      <div class="bento-grid">
-        
-        <!-- Bento Card: Comisiones -->
-        <div class="bento-card col-4 card-grad-red-light">
-          <div>
-            <h3 class="bento-card-title">Hasta 8% Comisión</h3>
-            <p class="bento-card-desc">
-              Detalle transparente de comisiones por cada venta de recargas y pines directamente desde la app.
+        <!-- Module 3: Motor de Recargas HTP (col-6) -->
+        <div class="bento-card col-6 card-grad-red-light" style="padding: 40px !important; min-height: 580px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="margin-bottom: 20px;">
+            <span class="section-meta" style="color: rgba(255, 255, 255, 0.7) !important; margin-bottom: 8px; display: block;">MÓDULO 03 / CORE TRANSACCIONAL</span>
+            <h3 class="bento-card-title" style="font-size: 2rem; color: #ffffff !important; margin-bottom: 12px; letter-spacing: -0.5px;">Motor de Recargas HTP</h3>
+            <p class="bento-card-desc" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255, 255, 255, 0.9); margin: 0;">
+              Diseñé el flujo del Core Transaccional optimizando el customer journey para entornos de alta demanda. Mi propuesta de UI se basó en la selección directa, utilizando una matriz de marcas visualmente clara y campos de entrada amplios para evitar errores de captura. Creé un flujo de confirmación express que prioriza la eficiencia, garantizando una experiencia de usuario intuitiva y robusta incluso en condiciones de operación rápida en campo.
             </p>
           </div>
-          <div class="device-wrapper">
-            <div class="phone-mockup" style="transform: none; height: 380px; border-color: rgba(255,255,255,0.2);">
-              <div class="phone-glare"></div>
-              <img src="pantallas-fullcarga/movimientos/5-Comisiones-htp.png" alt="Comisiones" class="phone-screen">
+          <div class="overlapping-screens-container" style="margin-top: auto; margin-bottom: -10px;">
+            <div class="overlapping-screen back-left">
+              <img src="pantallas-fullcarga/recargas/2-Digitales-Recargas-Seleccion.png" alt="Operator Selection">
+            </div>
+            <div class="overlapping-screen front-center">
+              <img src="pantallas-fullcarga/recargas/1-Digitales-Recargas.png" alt="Digital Recargas">
+            </div>
+            <div class="overlapping-screen back-right">
+              <img src="pantallas-fullcarga/recargas/4-Digitales-Recargas-Número-2.png" alt="Number Input">
             </div>
           </div>
         </div>
 
-        <!-- Bento Card: Movimientos -->
-        <div class="bento-card col-8 card-grad-red-dark">
-          <h3 class="bento-card-title">Historial de Movimientos en tiempo real</h3>
-          <p class="bento-card-desc">
-            Buscador rápido e historial de cobros con etiquetas de color y filtros para conciliar el dinero del día.
-          </p>
-          
-          <div class="phone-stack">
-            <div class="phone-mockup">
-              <div class="phone-glare"></div>
-              <img src="pantallas-fullcarga/movimientos/1-Movimientos.png" alt="Movimientos" class="phone-screen">
+        <!-- Module 4: Comisiones y Movimientos (col-12) -->
+        <div class="bento-card col-12 card-grad-red-light" style="padding: 50px !important;">
+          <div class="unified-auth-grid" style="align-items: center;">
+            <div class="unified-auth-left">
+              <span class="section-meta" style="color: rgba(255, 255, 255, 0.7) !important; margin-bottom: 8px; display: block;">MÓDULO 04 / GANANCIAS Y CONTROL</span>
+              <h3 class="bento-card-title" style="font-size: 2.2rem; color: #ffffff !important; margin-bottom: 16px; letter-spacing: -0.5px;">Comisiones y Movimientos</h3>
+              <p class="bento-card-desc" style="font-size: 1rem; line-height: 1.65; color: rgba(255, 255, 255, 0.95); margin: 0; max-width: 90%;">
+                Desarrollé la arquitectura de información para el módulo de control financiero, priorizando la transparencia y la legibilidad de datos. Implementé un sistema de señalética visual mediante etiquetas de color y filtros de búsqueda que permiten al usuario identificar movimientos en tiempo real sin fricción. Mi diseño transforma el historial de transacciones en una herramienta de gestión financiera ágil, facilitando al tendero la conciliación de su dinero de forma clara y efectiva.
+              </p>
             </div>
-            <div class="phone-mockup">
-              <div class="phone-glare"></div>
-              <img src="pantallas-fullcarga/movimientos/2-HTP Recargas.png" alt="Detalle Ventas" class="phone-screen">
+            <div class="unified-auth-right" style="border-left: none; padding-left: 0;">
+              <div class="flat-screens-container">
+                <div class="flat-screen-phone">
+                  <img src="pantallas-fullcarga/movimientos/1-Movimientos.png" alt="Transaction History">
+                </div>
+                <div class="flat-screen-phone">
+                  <img src="pantallas-fullcarga/movimientos/2-HTP Recargas.png" alt="HTP Recargas">
+                </div>
+                <div class="flat-screen-phone">
+                  <img src="pantallas-fullcarga/movimientos/6-rellleno-efectivo.png" alt="Refill Cash">
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+
+        <!-- Cierre de Proyecto (Directo sobre el fondo) -->
+        <div class="col-12" style="padding: 80px 20px 40px 20px !important; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;">
+          <h3 style="font-family: var(--font-title); font-size: 2.5rem; font-weight: 800; color: #e8001c !important; letter-spacing: -1.5px; max-width: 900px; margin: 0; line-height: 1.2;">
+            Fullcarga: Arquitectura UX/UI para la optimización transaccional
+          </h3>
+          <p style="font-size: 1.05rem; line-height: 1.75; color: #2a2a35 !important; max-width: 780px; margin: 0; font-weight: 500;">
+            El diseño de Fullcarga se construyó desde cero para transformar una estructura transaccional compleja en un flujo ágil, eliminando la fricción operativa y maximizando la eficiencia para el usuario final. Más que interfaces, construyo soluciones que escalan negocios. Si buscas transformar la experiencia de tus plataformas y convertir la complejidad operativa en resultados medibles, estoy listo para colaborar en tu próximo proyecto.
+          </p>
         </div>
 
       </div>
