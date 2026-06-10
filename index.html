@@ -117,7 +117,7 @@
 
     /* SECTION LAYOUTS */
     .behance-section {
-      padding: 100px 80px;
+      padding: 80px 40px;
       position: relative;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       background-color: #ffffff !important;
@@ -1134,6 +1134,12 @@
     }
 
     @media (max-width: 768px) {
+      .behance-section {
+        padding: 40px 16px !important; /* Wider cards on mobile by reducing outer margins */
+      }
+      .bento-card {
+        padding: 24px 16px !important; /* Wider cards content space */
+      }
       .nav-bar {
         padding: 20px 24px;
       }
@@ -1204,8 +1210,40 @@
       .small-phone-frame {
         width: 120px;
       }
+      
+      /* Fit three-screen rows on mobile without overflow */
       .auth-phone-frame {
-        width: 110px;
+        width: 82px;
+      }
+      .flat-screen-phone {
+        width: 82px;
+      }
+      .auth-visuals-row {
+        gap: 8px;
+      }
+      .flat-screens-container {
+        gap: 8px;
+      }
+      
+      /* Mobile layout for overlapping screens in modules 2 & 3 */
+      .overlapping-screens-container {
+        height: 230px;
+        padding-bottom: 5px;
+      }
+      .overlapping-screen {
+        width: 95px;
+      }
+      .overlapping-screen.back-left {
+        transform: translateX(-65px) translateY(8px) scale(0.88);
+      }
+      .overlapping-screen.back-right {
+        transform: translateX(65px) translateY(-8px) scale(0.88);
+      }
+      .overlapping-screens-container:hover .back-left {
+        transform: translateX(-108px) translateY(0) scale(1);
+      }
+      .overlapping-screens-container:hover .back-right {
+        transform: translateX(108px) translateY(0) scale(1);
       }
     }
   </style>
@@ -1465,7 +1503,7 @@
               <img src="pantallas-fullcarga/recargas/1-Digitales-Recargas.png" alt="Digital Recargas">
             </div>
             <div class="overlapping-screen back-right">
-              <img src="pantallas-fullcarga/recargas/4-Digitales-Recargas-Número-2.png" alt="Number Input">
+              <img src="pantallas-fullcarga/recargas/4-Digitales-Recargas-Numero-2.png" alt="Number Input">
             </div>
           </div>
         </div>
