@@ -591,6 +591,10 @@
       z-index: 2;
     }
 
+    .mobile-only-challenge-phone {
+      display: none !important;
+    }
+
     .design-zero-card {
       display: flex !important;
       flex-direction: column !important;
@@ -1135,115 +1139,196 @@
 
     @media (max-width: 768px) {
       .behance-section {
-        padding: 40px 16px !important; /* Wider cards on mobile by reducing outer margins */
+        padding: 30px 12px !important; /* Extremely compact side margins */
+      }
+      .bento-grid {
+        gap: 16px !important; /* Tighter grid gaps */
       }
       .bento-card {
-        padding: 24px 16px !important; /* Wider cards content space */
+        padding: 24px 16px !important; /* Compact card padding */
       }
       .nav-bar {
-        padding: 20px 24px;
-      }
-      .section-title {
-        font-size: 2.2rem;
+        padding: 16px 20px;
       }
       
-      /* Hero card mobile responsiveness */
+      /* GLOBAL COMPACT TITLES (Reducir interlineado y espacio) */
+      .section-title {
+        font-size: 1.9rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 12px !important;
+        letter-spacing: -1px !important;
+      }
+      .bento-card-title {
+        font-size: 1.4rem !important;
+        line-height: 1.15 !important;
+        letter-spacing: -0.5px !important;
+        margin-bottom: 8px !important;
+      }
+      .challenge-title {
+        font-size: 1.6rem !important;
+        line-height: 1.15 !important;
+        letter-spacing: -0.8px !important;
+        margin-bottom: 8px !important;
+      }
+      .hero-main-title {
+        font-size: 1.8rem !important;
+        line-height: 1.15 !important;
+        letter-spacing: -1px !important;
+        text-align: center !important;
+      }
+      .module-title {
+        font-size: 1.35rem !important;
+        line-height: 1.15 !important;
+        letter-spacing: -0.5px !important;
+      }
+      .bento-card-desc, .challenge-desc, .module-description {
+        font-size: 0.88rem !important;
+        line-height: 1.45 !important;
+        margin-bottom: 12px !important;
+      }
+      
+      /* Hero card mobile responsiveness (Centered & Compact) */
       .hero-main-card {
         flex-direction: column !important;
-        padding: 40px 24px !important;
+        padding: 32px 16px !important;
         min-height: auto !important;
-        gap: 30px;
-        align-items: flex-start !important;
+        gap: 20px;
+        align-items: center !important;
+        text-align: center !important;
       }
       .hero-left {
         width: 100%;
         flex: none !important;
-        text-align: left;
+        text-align: center !important;
+        align-items: center !important;
+        gap: 12px !important;
       }
-      .hero-main-title {
-        font-size: 2rem !important;
+      .hero-logo-container {
+        margin-top: 5px;
+      }
+      .hero-logo-svg {
+        height: 44px !important;
       }
       .hero-right {
         width: 100%;
-        min-height: 320px !important;
+        min-height: 260px !important;
         flex: none !important;
         align-self: stretch;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top: 10px;
       }
       .hero-hand-img {
-        height: 420px !important;
-        bottom: -120px !important;
-        right: 50% !important;
-        transform: translateX(50%) !important;
+        position: relative !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        transform: none !important;
+        height: 290px !important;
+        width: auto !important;
+        object-fit: contain !important;
+        margin-bottom: -36px;
       }
 
       /* Challenge card mobile responsiveness */
       .challenge-card {
         flex-direction: column !important;
-        padding: 40px 24px !important;
+        grid-column: span 12 !important;
+        padding: 24px 16px !important;
         min-height: auto !important;
-        gap: 30px;
       }
       .challenge-left {
         width: 100%;
         flex: none !important;
       }
+      .challenge-desc {
+        max-width: 100% !important;
+      }
+      .challenge-insight {
+        max-width: 100% !important;
+      }
       .challenge-right {
-        width: 100%;
-        min-height: 280px !important;
-        flex: none !important;
-        align-self: stretch;
+        display: none !important; /* Hidden in main card, shown in side-by-side card below */
       }
-      .challenge-phone-img {
-        height: 320px !important;
-        top: auto !important;
-        bottom: -50px !important;
-        right: 50% !important;
-        transform: rotate(-12deg) translateX(50%) !important;
-        transform-origin: bottom center;
+      
+      /* Mobile layout side-by-side challenge mockup & design zero card */
+      .mobile-only-challenge-phone {
+        display: flex !important;
+        grid-column: span 6 !important; /* Sits next to design zero card */
+        padding: 0px !important;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+        background: linear-gradient(135deg, #FF486D 0%, #F1123F 27%, #7B071F 100%) !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+        border-radius: 28px;
+        box-shadow: 0 15px 35px rgba(123, 7, 31, 0.2);
       }
+      .challenge-mobile-tilted-img {
+        width: 130%;
+        height: auto;
+        object-fit: contain;
+        transform: rotate(-12deg) translateY(12px) translateX(-4px);
+        display: block;
+      }
+      .design-zero-card {
+        grid-column: span 6 !important; /* Sits next to mobile phone card */
+        padding: 20px 16px !important;
+        min-height: 180px;
+        justify-content: center !important;
+      }
+      .design-number {
+        font-size: 5.5rem !important;
+      }
+      .design-bottom {
+        margin-top: 15px !important;
+        margin-bottom: -50px !important;
+      }
+
       .unified-modules-card {
-        padding: 40px 20px !important;
+        padding: 30px 16px !important;
       }
       .modules-section-title {
-        font-size: 2.2rem;
+        font-size: 1.9rem !important;
       }
       .small-phone-frame {
-        width: 120px;
+        width: 110px;
       }
       
       /* Fit three-screen rows on mobile without overflow */
       .auth-phone-frame {
-        width: 82px;
+        width: 80px;
       }
       .flat-screen-phone {
-        width: 82px;
+        width: 80px;
       }
       .auth-visuals-row {
-        gap: 8px;
+        gap: 6px;
       }
       .flat-screens-container {
-        gap: 8px;
+        gap: 6px;
       }
       
       /* Mobile layout for overlapping screens in modules 2 & 3 */
       .overlapping-screens-container {
-        height: 230px;
+        height: 210px;
         padding-bottom: 5px;
       }
       .overlapping-screen {
-        width: 95px;
+        width: 85px;
       }
       .overlapping-screen.back-left {
-        transform: translateX(-65px) translateY(8px) scale(0.88);
+        transform: translateX(-55px) translateY(8px) scale(0.88);
       }
       .overlapping-screen.back-right {
         transform: translateX(65px) translateY(-8px) scale(0.88);
       }
       .overlapping-screens-container:hover .back-left {
-        transform: translateX(-108px) translateY(0) scale(1);
+        transform: translateX(-95px) translateY(0) scale(1);
       }
       .overlapping-screens-container:hover .back-right {
-        transform: translateX(108px) translateY(0) scale(1);
+        transform: translateX(95px) translateY(0) scale(1);
       }
     }
   </style>
@@ -1319,6 +1404,11 @@
           <div class="challenge-right">
             <img src="imagenes/HEADER.png" alt="El Desafio Screen" class="challenge-phone-img">
           </div>
+        </div>
+
+        <!-- Bento Card: Challenge Phone Mockup (Visible only on mobile) -->
+        <div class="bento-card mobile-only-challenge-phone card-grad-red-light">
+          <img src="imagenes/HEADER.png" alt="El Desafio Screen" class="challenge-mobile-tilted-img">
         </div>
 
         <!-- Bento Card: Diseño desde 0 -->
